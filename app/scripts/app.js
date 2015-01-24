@@ -17,5 +17,6 @@ angular.module('virtualBoardApp', [
     'ngTouch',
     'firebase',
     'firebase.utils',
-    'simpleLogin'
+    'simpleLogin'/*,
+    'svg_editor'*/
   ]);

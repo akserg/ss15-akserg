@@ -61,7 +61,8 @@
 }
 
 #svg_editor div#workarea {
-	float: left;
+	padding-left: 65px;
+	padding-top: 34px;
 }
 
 #svg_editor div.palette_item {
@@ -90,7 +91,7 @@
 
 #svg_editor #tools {
 	border-right: none;
-	height: 504px;
+	height: 511px;
 	width: 64px;
 }
 
