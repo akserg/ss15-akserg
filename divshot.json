@@ -1,0 +1,6 @@
+{
+  "name": "ss15-akserg",
+  "root": "web",
+  "clean_urls": true,
+  "error_page": "error.html"
+}
