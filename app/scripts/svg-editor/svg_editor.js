@@ -33,24 +33,6 @@ app.directive('svgEditor', function() {
 			var listener = function(type, data) {
 				console.log('listen ', type, data);
 				$scope.save(data);
-/*				var _data = {
-					'type': 'svg',
-					'xmlns':'http://www.w3.org/2000/svg',
-					'id': 'svgroot',
-					'height': '480',
-					'width' : '640',
-					'nodes': {
- 						'0': {
- 							'type': 'path',
- 						 	'stroke': 'black',
- 						 	'fill': 'none',
- 						 	'id': 'svg_1',
- 						 	'd': 'M16,40 l0,0 l0,3 l-2,6 l-3,10 l-3,8 l-2,10 l-2,8 l-1,9 l0,8 l0,9 l0,6 l2,6 l3,5 l2,3 l6,4 l6,3 l8,4 l8,4 l10,3 l10,1 l11,2 l11,2 l9,1 l11,0 l11,-2 l10,-4 l10,-5 l8,-5 l6,-6 l5,-6 l6,-10 l2,-7 l2,-7 l1,-6 l0,-5 l0,-3 l0,-3 l0,-3 l-1,-2 l0,-1 l-1,0',
-	 					},
-						'length': '1'
-					}
-				};
-				$scope.save(_data);*/
 			};
 
 			var svgCanvas = new SvgCanvas(document.getElementById('svgcanvas'), listener);

@@ -40,6 +40,8 @@ function SvgCanvas(c, listener)
 	var selectedOutline = null;
 	var events = {};
 
+	var obj_num_str = '';
+
 // private functions
 	var getId = function() {
 	    if (events["getid"]) return call("getid",obj_num);
@@ -612,8 +614,41 @@ function SvgCanvas(c, listener)
 
 // public functions
 	this.update = function(value) {
-		if (value.hasOwnProperty('svg')) {
+		if (value && value.hasOwnProperty('svg')) {
+			this.clear();
+			var svg = value.svg;
+			svgroot.setAttribute("width", svg.attr.width);
+			svgroot.setAttribute("height", svg.attr.height);
+			if (svg.childs) {
+				// Svg Childs
+				for (var i = 0; i < svg.childs.length; i++) {
+					var child = svg.childs[i];
+					this.updateEl(child);
+				}
+			}
+			//
+			var num = obj_num_str.substr(idprefix.length);
+			num = parseInt(num);
+			obj_num = num + 1;
 		}
+	};
+
+	this.updateEl = function(child) {
+		obj_num_str = child.attr.id > obj_num_str ? child.attr.id : obj_num_str;
+		var el = addSvgElementFromJson(child);
+		if (child.childs) {
+			for (var i = 0; i < child.childs.length; i++) {
+				if (typeof(child.childs[i]) === 'string') {
+					var t = document.createTextNode(child.childs[i]);
+				    el.appendChild(t);
+				} else {
+					this.updateEl(child.childs[i]);
+				}
+			}
+		}
+	};
+
+	this.checkId = function(child) {
 	};
 
 	this.save = function() {
