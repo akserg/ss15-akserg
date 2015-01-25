@@ -47,7 +47,7 @@
 }
 
 .svg_editor #fill_color {
-	background: url('images/none.png');
+	background: url('../images/none.png');
 }
 
 .svg_editor #stroke_color {
@@ -164,27 +164,27 @@
 }
 
 .svg_editor #tool_square {
-	background: 2px 2px url('images/square.png') no-repeat;
+	background: 2px 2px url('../images/square.png') no-repeat;
 }
 
 .svg_editor #tool_rect {
-	background: 2px 2px url('images/rect.png') no-repeat;
+	background: 2px 2px url('../images/rect.png') no-repeat;
 }
 
 .svg_editor #tool_fhrect {
-	background: 2px 2px url('images/path.png') no-repeat;
+	background: 2px 2px url('../images/path.png') no-repeat;
 }
 
 .svg_editor #tool_circle {
-	background: 2px 2px url('images/circle.png') no-repeat;
+	background: 2px 2px url('../images/circle.png') no-repeat;
 }
 
 .svg_editor #tool_ellipse {
-	background: 2px 2px url('images/ellipse.png') no-repeat;
+	background: 2px 2px url('../images/ellipse.png') no-repeat;
 }
 
 .svg_editor #tool_fhellipse {
-	background: 2px 2px url('images/path.png') no-repeat;
+	background: 2px 2px url('../images/path.png') no-repeat;
 }
 
 .svg_editor #tools_rect div, .svg_editor #tools_ellipse div {

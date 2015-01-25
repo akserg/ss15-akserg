@@ -1,5 +1,5 @@
 {
   "name": "ss15-akserg",
-  "root": "dist",
+  "root": "bin",
   "clean_urls": true
 }
