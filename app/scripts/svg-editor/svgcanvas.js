@@ -120,6 +120,36 @@ function SvgCanvas(c, listener)
 		}
 		return out;
 	} // end svgToString()
+
+	var svgToJson = function(elem) {
+		// TODO: could use the array.join() optimization trick here too
+		var out = {};
+		var attrs = elem.attributes;
+		var attr;
+		var i;
+		var childs = elem.childNodes;
+		out.element = elem.nodeName;
+		out.attr = {};
+		for (i=attrs.length-1; i>=0; i--) {
+			attr = attrs.item(i);
+			if (attr.nodeValue !== '') {
+				out.attr[attr.nodeName] = attr.nodeValue;
+			}
+		}
+		if (elem.hasChildNodes()) {
+			out.childs = [];
+			for (i=0; i<childs.length; i++)
+			{
+				if (childs.item(i).nodeType === 1) { // element node
+					out.childs.push(svgToJson(childs.item(i)));
+				} else if (childs.item(i).nodeType === 3) { // text node
+					out.childs.push(childs.item(i).nodeValue);
+				}
+			}
+		}
+		return out;
+	}; // end svgToJson()
+
 	
 // public events
 	// call this function to set the selected element
@@ -581,16 +611,23 @@ function SvgCanvas(c, listener)
 	}
 
 // public functions
+	this.update = function(value) {
+		if (value.hasOwnProperty('svg')) {
+		}
+	};
 
 	this.save = function() {
 		// remove the selected outline before serializing
 		this.selectNone();
 		//var str = "<?xml version=\"1.0\" standalone=\"no\"?>\n";
 		//str += "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n";
-		var content = svgToString(svgroot, 0);
-		listener('save', content);
+		//var content = svgToString(svgroot, 0);
+		//listener('save', content);
 		//str += content;
 		//this.saveHandler(str);
+
+		var out = svgToJson(svgroot);
+		listener('save', out);
 	}
 
 	this.clear = function() {
