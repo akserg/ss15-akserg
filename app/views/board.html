@@ -17,21 +17,19 @@
 		<div id="tool_rect" title="Rectangle"></div>
 		<div id="tool_fhrect" title="Free-Hand Rectangle"></div>
 	</div>
-
+	
 	<div id="tools_ellipse" class="tools_flyout">
 		<div id="tool_circle" title="Circle"></div>
 		<div id="tool_ellipse" title="Ellipse"></div>
 		<div id="tool_fhellipse" title="Free-Hand Ellipse"></div>
 	</div>
-
+	
 	<div id="context_tools" class="tools_panel">
-		<!-- File-like buttons: New, Save -->
 		<div>
 			<img class="tool_button" id="tool_clear" src="images/clear.png" title="New Image [N]" alt="Clear" />
 			<img class="tool_button" id="tool_save" src="images/save.png" title="Save Image [S]" alt="Save"/>
 		</div>
 
-		<!-- Buttons when something is selected -->
 		<div id="selected_panel">
 			<img class="tool_sep" src="images/sep.png" alt="|"/>
 			<img class="tool_button" id="tool_delete" src="images/delete.png" title="Delete Element [X]" alt="Delete"/>
@@ -39,11 +37,9 @@
 			<img class="tool_button" id="tool_move_bottom" src="images/move_bottom.png" title="Move to Bottom" alt="Bottom"/>
 		</div>
 
-		<!-- TODO: also add x, y, width, height -->
 		<div id="rect_panel">
 			<img class="tool_sep" src="images/sep.png" alt="|"/>
 			<label class="rect_tool" >Radius:</label>
-			<!-- TODO: turn this into a spinner control! -->
 			<select id="rect_radius" class="rect_tool" title="Change Rectangle Corner Radius" alt="Corner Radius">
 				<option selected="selected" value="0">0</option>
 				<option value="1">1</option>
@@ -56,8 +52,6 @@
 				<option value="20">20</option>
 			</select>
 		</div>
-
-		<!-- TODO: add a circle_panel, ellipse_panel, line_panel -->
 
 		<div id="text_panel">
 			<img class="tool_sep" src="images/sep.png" alt="|"/>
@@ -187,9 +181,3 @@
 $(document).ready(svg_edit_setup);
 </script>
 
-
-<!--div id="svg_editor" ng-controller="SvgCtrl">
-	<button ng-click="update()">Update</button>
-	<svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}" svgroot ng-model="svg">
-	</svg>
-</div-->
