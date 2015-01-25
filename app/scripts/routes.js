@@ -69,7 +69,7 @@ angular.module('virtualBoardApp')
 
       .when('/board', {
         templateUrl: 'views/board.html',
-        controller: 'ChatCtrl'
+        controller: 'BoardCtrl'
       })
 
       .whenAuthenticated('/account', {
@@ -77,10 +77,6 @@ angular.module('virtualBoardApp')
         controller: 'AccountCtrl'
       })
 
-      .when('/board', {
-        templateUrl: 'views/board.html',
-        controller: 'ChatCtrl'
-      })
       .otherwise({redirectTo: '/'});
   }])
 

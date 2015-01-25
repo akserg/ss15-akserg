@@ -8,7 +8,7 @@ app.directive('svgEditor', function() {
 	return {
 		scope: true,
 		restrict: 'A',
-		requre: ['ChatCtrl'],
+		requre: ['BoardCtrl'],
 		templateUrl: 'views/svg_editor.html',
 		controller: function($scope, fbutil) {
 			var data;
