@@ -22,7 +22,7 @@ function SvgCanvas(c, listener)
 	var obj_num = 1;
 	var start_x = null;
 	var start_y = null;
-	var current_mode = "path";
+	var current_mode = "select";
 	var current_fill = "none";
 	var current_stroke = "black";
 	var current_stroke_width = 1;
@@ -626,10 +626,12 @@ function SvgCanvas(c, listener)
 					this.updateEl(child);
 				}
 			}
-			//
-			var num = obj_num_str.substr(idprefix.length);
-			num = parseInt(num);
-			obj_num = num + 1;
+			// Update current maximum number of objects
+			obj_num = parseInt(obj_num_str.substr(idprefix.length)) + 1;
+			// Correct the value if necessary
+			if (isNaN(obj_num)) {
+				obj_num = 1;
+			}
 		}
 	};
 
