@@ -1,6 +1,6 @@
 var svgcanvas = null;
 
-function SvgCanvas(c)
+function SvgCanvas(c, listener)
 {
 
 // private members
@@ -120,7 +120,7 @@ function SvgCanvas(c)
 		}
 		return out;
 	} // end svgToString()
-
+	
 // public events
 	// call this function to set the selected element
 	// call this function with null to clear the selected element
@@ -585,10 +585,12 @@ function SvgCanvas(c)
 	this.save = function() {
 		// remove the selected outline before serializing
 		this.selectNone();
-		var str = "<?xml version=\"1.0\" standalone=\"no\"?>\n";
-		str += "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n";
-		str += svgToString(svgroot, 0);
-		this.saveHandler(str);
+		//var str = "<?xml version=\"1.0\" standalone=\"no\"?>\n";
+		//str += "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n";
+		var content = svgToString(svgroot, 0);
+		listener('save', content);
+		//str += content;
+		//this.saveHandler(str);
 	}
 
 	this.clear = function() {
